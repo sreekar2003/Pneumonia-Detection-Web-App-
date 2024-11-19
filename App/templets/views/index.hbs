@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PneumoTrack</title>
+    <link rel="icon" href="/img/logo1.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f7f9fc;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header a img {
+            width: 180px;
+            height: auto;
+        }
+
+        .nav-link {
+            font-size: 18px;
+            color: #0056b3;
+        }
+
+        .nav-link:hover {
+            color: #003580;
+        }
+
+        /* Form Styles */
+        .display-4 {
+            color: #212529;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control, .form-select {
+            height: 50px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 18px;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Doctor Help Button */
+        .btn-warning {
+            background-color: #ffcc00;
+            color: #000000;
+            font-size: 18px;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6b800;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .btn-primary, .btn-warning {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="/img/logo2.png" alt="PneumoTrack">
+            </a>
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a href="/" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="nav-link">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/precaution" class="nav-link">Precautions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/doctorhelp" class="nav-link">Doctor Help</a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- Main Form for Patient Details and X-Ray Upload -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="display-4">Fill the patient details and upload the chest X-Ray</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12 form-container">
+                <form action="/home" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <div class="row g-3">
+                            <div class="col">
+                                <input type="text" name="first_name" class="form-control" placeholder="First name" aria-label="First name" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="gender" aria-label="Gender" required>
+                            <option selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" name="age" class="form-control" placeholder="Age" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" name="phoneNo" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="address" class="form-control" placeholder="City/Village" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" name="image" accept="image/*" class="form-control" id="inputFile" required>
+                        <label class="input-group-text" for="inputFile">Upload Chest X-Ray</label>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctor Help Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <a href="/doctorhelp" class="btn btn-warning">Need Help Finding a Doctor?</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

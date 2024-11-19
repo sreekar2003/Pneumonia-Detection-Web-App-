@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PneumoTrack</title>
+    <link rel="icon" href="/img/logo1.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+        .content-section {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content-section h2, .content-section h5 {
+            color: #003366;
+        }
+        .content-section p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #0066cc;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="/img/logo2.png" alt="PneumoTrack" width="200" height="60">
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/help" class="nav-link">Help</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link active">About</a></li>
+                <li class="nav-item"><a href="/precaution" class="nav-link">Precautions</a></li>
+                <li class="nav-item"><a href="/doctorhelp" class="nav-link">Doctor Help</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="banner">
+        <img src="/img/virus.jpg" alt="Pneumonia X-Ray Image">
+    </div>
+
+    <div class="container">
+        <div class="content-section">
+            <h2 class="fw-bold">About PneumoTrack</h2>
+            <p>
+                <span class="highlight">PneumoTrack</span> is a machine-learning based web application designed to assist in the detection of <span class="highlight">pneumonia</span> through chest X-ray images. 
+                Pneumonia, a severe lung infection, affects millions worldwide and can be fatal if not diagnosed promptly. Our application leverages the power of <span class="highlight">deep learning</span> 
+                models to offer a fast, accurate, and reliable way to detect pneumonia from X-ray scans.
+            </p>
+            
+            <h5 class="mt-4">Why PneumoTrack?</h5>
+            <p>
+                In the wake of the COVID-19 pandemic, pneumonia detection has become more critical than ever, as the virus can lead to severe lung infections. 
+                Accurate and early detection of pneumonia is essential to improve patient outcomes, especially in regions with limited healthcare resources. 
+                <span class="highlight">PneumoTrack</span> aims to bridge the gap by providing quick diagnosis with a focus on accuracy and efficiency.
+            </p>
+
+            <h5 class="mt-4">How It Works</h5>
+            <p>
+                Using the latest in <span class="highlight">Convolutional Neural Networks (CNN)</span>, <span class="highlight">PneumoTrack</span> analyzes chest X-rays to detect signs of pneumonia. 
+                The model was trained using a publicly available dataset from <span class="highlight">Kaggle</span>, consisting of over 5,000 labeled X-ray images of pneumonia cases and normal lungs. 
+                The model, once it detects pneumonia, automatically generates a report and emails it to the patient, helping in faster diagnosis and treatment.
+            </p>
+
+            <h5 class="mt-4">Key Features</h5>
+            <ul>
+                <li>AI-driven pneumonia detection using chest X-rays</li>
+                <li>Detailed reports delivered via email for both patients and healthcare providers</li>
+                <li>Integration of modern web technologies for a smooth user experience</li>
+                <li>Real-time analysis with high accuracy</li>
+            </ul>
+
+            <h5 class="mt-4">Aiding the Medical Community</h5>
+            <p>
+                <span class="highlight">PneumoTrack</span> not only speeds up diagnosis but also helps reduce the workload on radiologists and diagnostic centers by offering an automated solution. 
+                This allows healthcare professionals to focus on treatment, rather than spending excessive time diagnosing.
+            </p>
+
+            <h5 class="mt-4">The Future of PneumoTrack</h5>
+            <p>
+                As we continue to evolve, we aim to incorporate new features such as severity classification, additional lung condition detection, and even providing treatment recommendations based on the detection. 
+                Our mission is to make pneumonia detection accessible and accurate, benefiting both patients and healthcare professionals alike.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 PneumoTrack. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

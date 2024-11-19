@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PneumoTrack - Doctor Help</title>
+    <link rel="icon" href="/img/logo1.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f7f9fc;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Fade Animation */
+        .fade-in {
+            animation: fadeInAnimation 1s ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header a img {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            color: #0056b3;
+        }
+
+        .nav-link:hover {
+            color: #003580;
+        }
+
+        .nav-pills .nav-item .nav-link.active {
+            background-color: #0056b3;
+        }
+
+        .display-4 {
+            color: #212529;
+            font-weight: bold;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            animation: slideInAnimation 1s ease-in-out;
+        }
+
+        @keyframes slideInAnimation {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-control, .form-select {
+            height: 45px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-size: 16px;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-warning {
+            background-color: #ffcc00;
+            color: #000000;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6b800;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .btn-primary, .btn-warning {
+                font-size: 14px;
+            }
+        }
+
+        .list-group-item {
+            background-color: #ffffff;
+            border: 1px solid #e3e6ea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body class="fade-in">
+    <!-- Header -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="/img/logo2.png" alt="PneumoTrack">
+            </a>
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="nav-link">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/precaution" class="nav-link">Precautions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/doctorhelp" class="nav-link active">Doctor Help</a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- Search for Hospitals -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="display-4">Find a Hospital for Lung Diseases</p>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12 form-container">
+                <form action="/search-hospitals" method="POST">
+                    <div class="mb-3">
+                        <input type="text" name="city" class="form-control" placeholder="Enter City" aria-label="City">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="state" class="form-control" placeholder="Enter State" aria-label="State">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Search Hospitals</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            {{#if hospitals.length}}
+            <div class="row">
+                <div class="col">
+                    <h4>Available Hospitals</h4>
+                    <ul class="list-group">
+                        {{#each hospitals}}
+                        <li class="list-group-item">
+                            <strong>{{getProp this 'Hospital Name'}}</strong><br>
+                            Address: {{getProp this 'Address'}}<br>
+                            City: {{getProp this 'City'}}<br>
+                            State: {{getProp this 'State'}}<br>
+                            Phone Number: {{getProp this 'Phone Number'}}<br>
+                            Specialization: {{getProp this 'Specialization'}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            {{else}}
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <p>No hospitals found. Displaying all hospitals:</p>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+</body>
+</html>
