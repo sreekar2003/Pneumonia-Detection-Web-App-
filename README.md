@@ -13,7 +13,6 @@ Features
 •	User-Friendly Design: Modern interface for an accessible and efficient user experience.
 Live Demo
 
-You can access the live version of the application here: (Add link if hosted online)
 
 Repository Link
 
